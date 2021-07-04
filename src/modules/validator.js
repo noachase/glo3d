@@ -18,7 +18,8 @@ const useValidation = () => {
   const digitsRegex = /\D/
   const textRegex = /[^а-я-' ё]/gi
   const messRegex = /([^а-я0-9-,.' ё])/gi
-  const mailRegex = /[^a-z-' @\-_.!~*']/gi
+  // const mailRegex = /[^a-z-' @\-_.!~*']/gi
+  const mailRegex = /[^a-z0-9-' @\.']/gi
   const cellRegex = /[^0-9+]/g
 
   const validateCalc = e => {
@@ -44,8 +45,6 @@ const useValidation = () => {
   const validateEmail = e => {
     e.target.value = e.target.value
       .replace(mailRegex, '')
-      .replace(/^[ -]+/g, '')
-      .replace(/[ -]+$/g, '')
       .replace(/\s+/g, ' ')
   }
 
@@ -58,8 +57,6 @@ const useValidation = () => {
     e.target.value = e.target.value
       .replace(messRegex, '')
       .replace(/^[ -]+/g, '')
-    // .replace(/[ -]+$/g, '')
-    // .replace(/\s+/g, ' ')
   }
 
   const validateFormNameBlur = e => {
@@ -80,9 +77,7 @@ const useValidation = () => {
 
   const validateFormEmailBlur = e => {
     e.target.value = e.target.value
-      .replace(/[^a-z@\-_.!~*']/gi, '')
-      .replace(/^[ -]+/g, '')
-      .replace(/[ -]+$/g, '')
+      .replace(mailRegex, '')
       .replace(/\s+/g, ' ')
   };
 

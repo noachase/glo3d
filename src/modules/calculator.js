@@ -33,7 +33,7 @@ const calculator = (price = 100) => {
 
       const obj = document.getElementById(id)
       const range = end - start
-      const minTimer = 100
+      const minTimer = 10
       let stepTime = Math.abs(Math.floor(duration / range))
 
       stepTime = Math.max(stepTime, minTimer)
@@ -58,6 +58,7 @@ const calculator = (price = 100) => {
   }
 
   calcBlock.addEventListener('change', e => {
+    // clearInterval(timer)
     const target = e.target
     if (target.matches('select') || target.matches('input')) {
       countSum()
