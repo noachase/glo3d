@@ -57,7 +57,7 @@ const sendForm = () => {
       const inputsMail = currentForm.querySelector('input[name="user_email"]')
       const formBtn = document.querySelectorAll('.form-btn')
 
-      const bgWarnColor = '#e66767'
+      const bgWarnColor = 'tomato'
 
       const btnEnable = () => {
         formBtn.forEach(el => {
@@ -73,7 +73,7 @@ const sendForm = () => {
       if (target.contains(inputsName) && !checkName.test(inputsName.value)) {
         btnDisable()
         inputsName.style.backgroundColor = bgWarnColor
-        statusMessage.textContent = `Use only the russian letters in Name field`
+        statusMessage.textContent = `only cyrylic allowed`
         return
       } else {
         btnEnable()
@@ -84,11 +84,10 @@ const sendForm = () => {
       if (target.contains(inputsPhone) && !inputsPhone.value.match(checkPhone) || inputsPhone.value.length > 17) {
         btnDisable()
         inputsPhone.style.backgroundColor = bgWarnColor
-        statusMessage.textContent = `Only numbers allowed +380____ or +7____. Maximal length is 16.
-      `
+        statusMessage.textContent = `only numbers allowed`
         return
       } else {
-        inputsPhone.value = inputsPhone.value.replace(/[A-Za-zА-Яа-яЁё]/, ``)
+        inputsPhone.value = inputsPhone.value.replace(/[a-zа-яё]/i, '')
         btnEnable()
         statusMessage.textContent = ''
         inputsPhone.style.backgroundColor = 'white'
@@ -100,7 +99,7 @@ const sendForm = () => {
         statusMessage.textContent = `xxx@yyy.zzz`
         return
       } else {
-        inputsMail.value = inputsMail.value.replace(/[А-Яа-яЁё]\s/, ``)
+        inputsMail.value = inputsMail.value.replace(/[а-яё]\s/i, '')
         btnEnable()
         statusMessage.textContent = ''
         inputsMail.style.backgroundColor = 'white'
