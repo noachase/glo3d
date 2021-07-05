@@ -3,18 +3,13 @@ const slider = () => {
 
   const slide = document.querySelectorAll('.portfolio-item')
 
-  const firstDot = document.createElement('li')
-  firstDot.classList.add('dot')
-  firstDot.classList.add('dot-active')
-
-  dotParent.appendChild(firstDot)
   //!PAINT DOTS
-  slide.forEach(item => {
+  slide.forEach((item, i) => {
     item = document.createElement('li')
     item.classList.add('dot')
     dotParent.appendChild(item)
+    if (i === 0) item.classList.add('dot-active')
   })
-  dotParent.lastElementChild.remove()
 
   //*PAINT DOTS END
   const dot = document.querySelectorAll('.dot')
