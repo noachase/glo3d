@@ -21,7 +21,6 @@ const sendForm = () => {
 
   const postData = body => {
     statusMessage.innerHTML = spinner
-    console.log('hi')
     return fetch("./server.php", {
       method: "POST",
       headers: {

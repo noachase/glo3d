@@ -27,7 +27,6 @@ const toggeMenu = () => {
     if (target.closest('.menu')) {
       ToggleMenu()
     } else if (target.closest('.active-menu') && !target.classList.contains('active-menu') && target.tagName !== 'LI') {
-      console.log('object')
       ToggleMenu()
     } else {
       target = target.closest('.active-menu')

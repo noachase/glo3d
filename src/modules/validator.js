@@ -36,7 +36,6 @@ const useValidation = () => {
 
   const validateMessageText = e => {
     if (e.target.type === 'text' && e.target.classList.contains('mess') && !e.target.classList.contains('calc-item')) {
-      console.log('object')
       e.target.value = e.target.value
         .replace(messRegex, '')
     }
